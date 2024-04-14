@@ -127,6 +127,46 @@ $r->post('/exer8/resposta', function(){
     return "São necessarias {$latas} latas, preço total R\${$preco},00";
 });
 
+$r->get('/exer9', function(){
+    include("exer9.php");
+});
+
+$r->post('/exer9/resposta', function(){
+    $dtnasc = new DateTime($_POST['dtnasc']);
+    $dthoje = new DateTime();
+    $dt2025 = new DateTime('2025-'.date('m').'-'.date('d'));
+
+    $idade = $dthoje->diff($dtnasc);
+    $diasVivo = $idade->y*365;
+    $idade2025 = $dt2025->diff($dtnasc);
+    
+    return "Você tem ".$idade->y." anos<br>
+            Viveu aproximadamente ".$diasVivo." dias<br>
+            Terá ".$idade2025->y." anos em 2025";
+});
+
+$r->get('/exer10', function(){
+    include("exer10.php");
+});
+
+$r->post('/exer10/resposta', function(){
+    $peso = $_POST['peso'];
+    $altura = $_POST['altura'];
+    
+    $IMC = $peso / (pow($altura,2));
+    if ($IMC < 18.5) {
+        $estado = "abaixo do peso";
+    } elseif ($IMC > 24.9) {
+        $estado = "acima do peso";
+    } else {
+        $estado = "com peso normal";
+    }
+
+
+    return "Você está ".$estado."<br>
+            Site de referência: <a href='https://superafarma.com.br/calcule-o-seu-imc-calculadora-peso-ideal/#:~:text=O%20IMC%20%C3%A9%20calculado%20dividindo,peso%2F(altura%20x%20altura).' target='_blank'>superafarma.com.br</a>";
+});
+
 #ROTAS
 
 $resultado = $r->handler();
