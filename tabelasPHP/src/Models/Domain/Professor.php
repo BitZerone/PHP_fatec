@@ -6,6 +6,7 @@ class Professor{
 
     private $nome;
     private $telefone;
+    private $id;
 
     public function __construct($nome, $telefone){
         $this->setNome($nome);
@@ -26,6 +27,14 @@ class Professor{
 
     public function setTelefone($telefone){
         $this->telefone = $telefone;
+    }
+
+    public function setId($id){
+        $this->id = $id;
+    }
+
+    public function getId(){
+        return $this->id;
     }
 
 }

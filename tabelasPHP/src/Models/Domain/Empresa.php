@@ -6,6 +6,7 @@ class Empresa{
 
     private $nome;
     private $cnpj;
+    private $id;
 
     public function __construct($nome, $cnpj){
         $this->setNome($nome);
@@ -26,6 +27,14 @@ class Empresa{
 
     public function setCnpj($cnpj){
         $this->cnpj = $cnpj;
+    }
+
+    public function setId($id){
+        $this->id = $id;
+    }
+
+    public function getId(){
+        return $this->id;
     }
 
 }

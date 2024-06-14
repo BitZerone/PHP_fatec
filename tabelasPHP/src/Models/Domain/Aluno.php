@@ -6,6 +6,7 @@ class Aluno{
 
     private $matricula;
     private $endereco;
+    private $id;
 
     public function __construct($matricula, $endereco){
         $this->setMatricula($matricula);
@@ -26,6 +27,14 @@ class Aluno{
 
     public function setEndereco($endereco){
         $this->endereco = $endereco;
+    }
+
+    public function setId($id){
+        $this->id = $id;
+    }
+
+    public function getId(){
+        return $this->id;
     }
 
 }
